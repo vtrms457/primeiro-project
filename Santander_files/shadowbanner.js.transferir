@@ -1,0 +1,24 @@
+function menuMobile(){
+    if($("body").hasClass('std-pagina-home novaHome')){
+        $('header')[0].removeChild($('header')[0].childNodes[17]);
+    } else {
+        $('header')[0].removeChild($('header')[0].childNodes[15]);
+    }
+}
+
+function shadowBannerPrincipal(){
+    if(document.getElementById('shadowComponent').value === "Com sombra"){
+        var element = document.createElement("SPAN");
+        element.setAttribute("id","shadow");
+        element.setAttribute("style", "position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(34, 34, 34, 0.4);");
+        document.querySelectorAll('.imagem-hero.slick-slide')[0].appendChild(element);
+    } else {
+        if(document.querySelectorAll('.imagem-hero.slick-slide>span')[0]){
+            document.querySelectorAll('.imagem-hero.slick-slide')[0].removeChild(document.querySelectorAll('.imagem-hero.slick-slide>span')[0]);
+        }
+    }
+}
+
+
+menuMobile();
+shadowBannerPrincipal();

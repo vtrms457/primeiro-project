@@ -1,0 +1,1 @@
+function enhancedTags(t){if(t){const i=t.split("|"),e=i[2].substring(1,i[2].length-1).split(","),n=[{id:e[0].trim(),name:e[1].trim(),creative:e[2].trim(),position:e[3].trim()}],s={};s[i[1]]={promotions:n},this.dataLayer.push({event:i[0],ecommerce:s})}}

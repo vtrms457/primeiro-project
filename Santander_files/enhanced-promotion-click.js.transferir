@@ -1,0 +1,71 @@
+
+
+
+    
+    for (i = 0; i < imageHeroSuperBannerList.length; i++) {
+        if (!imageHeroSuperBannerList[i].classList.contains("slick-cloned")) {
+            imageHeroSuperBannerList[i].addEventListener("click", function () {
+                var promoCrArray = this.style.backgroundImage.split('/');
+                var promoCr = promoCrArray[promoCrArray.length - 1];
+                var index = parseInt(this.getAttribute("data-slick-index"));
+                promoCr = promoCr.split('"')[0];
+                enhancedPromotion = 'promotionClick|promoClick|[' + this.getAttribute('id-tag') + ', superBanner,' + promoCr + ', ' + (index + 1) + ']';
+                enhancedTags(enhancedPromotion);
+            });
+        }
+    }
+
+    for (i = 0; i < importanteCarrocelList.length; i++) {
+        if (!importanteCarrocelList[i].classList.contains("slick-cloned")) {
+            importanteCarrocelList[i].addEventListener("click", function () {
+                var imgImportante = this.querySelector('.imagem-importante');
+                var promoCrArray = imgImportante.style.backgroundImage.split('/');
+                var promoCr = promoCrArray[promoCrArray.length - 1];
+                var index = parseInt(this.getAttribute("data-slick-index"));
+                promoCr = promoCr.split('"')[0];
+                enhancedPromotion = 'promotionClick|promoClick|[' + this.getAttribute('id-tag') + ', Importante para você,' + promoCr + ', ' + (index + 1) + ']';
+                enhancedTags(enhancedPromotion);
+            });
+        }
+    }
+
+    for (i = 0; i < promoCarrocelList.length; i++) {
+        if (!promoCarrocelList[i].classList.contains("slick-cloned")) {
+            promoCarrocelList[i].addEventListener("click", function () {
+                var imgImportanteSim = this.querySelector('.imagem-importante-sim');
+                var promoCrArray = imgImportanteSim.style.backgroundImage.split('/');
+                var promoCr = promoCrArray[promoCrArray.length - 1];
+                var index = parseInt(this.getAttribute("data-slick-index"));
+                promoCr = promoCr.split('"')[0];
+                enhancedPromotion = 'promotionClick|promoClick|[' + this.getAttribute('id-tag') + ', Box Promoções,' + promoCr + ', ' + (index + 1) + ']';
+                enhancedTags(enhancedPromotion);
+            });
+        }
+    }
+
+    for (i = 0; i < prodParceirosCarrocelList.length; i++) {
+        if (!prodParceirosCarrocelList[i].classList.contains("slick-cloned")) {
+        prodParceirosCarrocelList[i].setAttribute('data-index', i)
+        prodParceirosCarrocelList[i].addEventListener("click", function () {
+        var img = this.querySelector('img').getAttribute("src");
+        var promoCrArray = img.split('/');
+        var promoCr = promoCrArray[promoCrArray.length - 1];
+        var index = parseInt(this.getAttribute("data-index"));
+        promoCr = promoCr.split('"')[0];
+        enhancedPromotion = 'promotionClick|promoClick|[' + this.getAttribute('id-tag') + ', Confira outros produtos dos nossos parceiros,' + promoCr + ', ' + (index + 1) + ']';
+        enhancedTags(enhancedPromotion);
+        });
+        }
+    }
+
+    for (i = 0; i < novidadesList.length; i++) {
+        novidadesList[i].setAttribute('data-index', i);
+        novidadesList[i].addEventListener("click", function () {
+            var img = this.querySelector("img").getAttribute("src");
+            var promoCrArray = img.split("/");
+            var promoCr = promoCrArray[promoCrArray.length - 1];
+            var index = parseInt(this.getAttribute("data-index"));
+            enhancedPromotion = 'promotionClick|promoClick|[' + this.getAttribute('id-tag') + ', Novidades que talvez você se interesse,' + promoCr + ', ' + (index + 1) + ']';
+            enhancedTags(enhancedPromotion);
+        });
+    }

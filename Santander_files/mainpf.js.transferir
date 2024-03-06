@@ -1,0 +1,511 @@
+function carruselInit() {
+  $(function () {
+    $().slick &&
+      ($(".hero-super").show(),
+      $(".hero-super").not(".slick-initialized").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        dots: !0,
+        nextArrow:
+          '<button type="button" class="slick-next" id="superbanner-next"  style="display:none" >&#8250;</button>',
+      }),
+      null != document.querySelector(".hero-super") &&
+        $(".hero-super").slick("refresh"),
+      $(".cards-slider")
+        .not(".slick-initialized")
+        .slick({
+          slidesToShow: 6,
+          slidesToScroll: 4,
+          swipeToSlide: !0,
+
+          arrows: true,
+          dots: !1,
+
+          nextArrow:
+            '<button type="button" class="slick-next" id="superbanner-next"  style ="display:none">&#8250;</button>',
+
+          responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 3,
+                arrows: true,
+
+                nextArrow:
+                  '<button type="button" class="slick-next" id="superbanner-next" style ="display:none">&#8250;</button>',
+              },
+            },
+            {
+              breakpoint: 800,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                arrows: true,
+                infinite: !1,
+
+                nextArrow:
+                  '<button type="button" class="slick-next" id="superbanner-next"  style ="display:none">&#8250;</button>',
+              },
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                arrows: true,
+                speed: 100,
+                infinite: !1,
+
+                nextArrow:
+                  '<button type="button" class="slick-next" id="superbanner-next"  style ="display:none">&#8250;</button>',
+              },
+            },
+            {
+              breakpoint: 380,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                speed: 100,
+                infinite: !1,
+
+                nextArrow:
+                  '<button type="button" class="slick-next" id="superbanner-next"  style ="display:none">&#8250;</button>',
+              },
+            },
+          ],
+        }),
+      $(".importante-slider")
+        .not(".slick-initialized")
+        .slick({
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          autoplay: !1,
+          arrows: !1,
+          dots: !0,
+          autoplaySpeed: 2e3,
+          responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                dots: !0,
+              },
+            },
+            {
+              breakpoint: 900,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                dots: !0,
+              },
+            },
+            {
+              breakpoint: 555,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: !0,
+              },
+            },
+          ],
+        })),
+      window.outerWidth > 479 &&
+        2 === $(".importante-slider > div > div > div").length &&
+        ($(".importante-slider > ul")[0].style.display = "none");
+  }),
+    setTimeout(function () {
+      $().slick &&
+        ($(".slider-promocoes")[0].children.length > 1 &&
+          $(".slider-promocoes")
+            .not(".slick-initialized")
+            .slick({
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              autoplay: !1,
+              arrows: !1,
+              dots: !0,
+              autoplaySpeed: 3e3,
+              responsive: [
+                {
+                  breakpoint: 769,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                  },
+                },
+                {
+                  breakpoint: 767,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: !1,
+                  },
+                },
+              ],
+            }),
+        $(".slider-empresas")
+          .not(".slick-initialized")
+          .slick({
+            slidesToShow: 6,
+            slidesToScroll: 6,
+            autoplay: !1,
+            arrows: !0,
+            dots: !1,
+            speed: 100,
+            autoplaySpeed: 3e3,
+            responsive: [
+              {
+                breakpoint: 1200,
+                settings: {
+                  slidesToShow: 6,
+                  slidesToScroll: 3,
+                },
+              },
+              {
+                breakpoint: 992,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 2,
+                  arrows: !1,
+                },
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 2,
+                  arrows: !1,
+                },
+              },
+            ],
+          }));
+    }, 1800),
+    (loop = setInterval(function () {
+      $().slick &&
+        window.matchMedia("(max-width: 1024px)").matches &&
+        ($(".slider-parceiros-mobile")
+          .not(".slick-initialized")
+          .slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: !1,
+            arrows: !1,
+            dots: !0,
+            autoplaySpeed: 3e3,
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                  arrows: !1,
+                },
+              },
+              {
+                breakpoint: 767,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  arrows: !1,
+                },
+              },
+            ],
+          }),
+        $(".slider-canais-digitais")
+          .not(".slick-initialized")
+          .slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: !1,
+            arrows: !1,
+            dots: !1,
+            autoplaySpeed: 3e3,
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                  arrows: !1,
+                },
+              },
+              {
+                breakpoint: 767,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  arrows: !1,
+                },
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 2,
+                  arrows: !1,
+              },
+            },
+            {
+              breakpoint: 350,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: !1,
+            },
+          },
+          ],
+
+          }),
+        $(".slider-veja-tambem")
+          .not(".slick-initialized")
+          .slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: !1,
+            arrows: !1,
+            dots: !1,
+            autoplaySpeed: 3e3,
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                  arrows: !1,
+                },
+              },
+              {
+                breakpoint: 767,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  arrows: !1,
+                },
+              },
+            ],
+          }),
+        clearInterval(loop));
+    }, 300));
+}
+
+function clickhf() {
+  $(function () {
+    $(".copy-fot h3").click(function () {
+      var s = $(this).parent();
+      s.hasClass("active")
+        ? (s.removeClass("active"), $(this).removeClass("clicked"))
+        : (s.addClass("active"), $(this).addClass("clicked"));
+    }),
+      $(".hamburger.hamburger--squeeze.js-hamburger").click(function () {
+        !$(this).hasClass("is-active") ||
+        $("header-internet-banking").hasClass("mobile-app-list-opened")
+          ? ($("header-internet-banking").removeClass("mobile-app-list-opened"),
+            $(this).addClass("is-active"),
+            $(".menu-hidden").addClass("showMenu"),
+            $(".sub-level").removeClass("is-visible"))
+          : ($(this).removeClass("is-active"),
+            $(".menu-hidden").removeClass("showMenu"));
+      }),
+      $(".has-level .link-menu").click(function () {
+        $(this).find("+ .sub-level").addClass("is-visible"),
+          $(this).addClass("is-clicked");
+      }),
+      $(".has-level .link-menu.is-clicked").click(function () {
+        $(this).find("+ .sub-level").addClass("is-visible"),
+          $(this).removeClass("is-clicked");
+      }),
+      Element.prototype.matches ||
+        (Element.prototype.matches =
+          Element.prototype.msMatchesSelector ||
+          Element.prototype.webkitMatchesSelector),
+      Element.prototype.closest ||
+        (Element.prototype.closest = function (s) {
+          var e = this;
+          if (!document.documentElement.contains(e)) return null;
+          do {
+            if (e.matches(s)) return e;
+            e = e.parentElement;
+          } while (null !== e);
+          return null;
+        }),
+      $(".back-menu").click(function () {
+        $(this).closest("div.sub-level").removeClass("is-visible"),
+          $(this).closest(".link-menu.is-clicked").removeClass("is-clicked"),
+          $(this).addClass("is-clicked");
+      }),
+      $(".back-menu.is-clicked").click(function () {
+        $(this).closest("div.sub-level").removeClass("is-visible");
+      }),
+      $("button > icon-search").click(function () {
+        $("header-internet-banking").hasClass("mobile-app-list-opened") ||
+        $("ul.menu-hidden").hasClass("showMenu")
+          ? ($("header-internet-banking").removeClass("mobile-app-list-opened"),
+            $(".hamburger.hamburger--squeeze.js-hamburger").removeClass(
+              "is-active"
+            ),
+            $(".menu-hidden").removeClass("showMenu"),
+            $(".bloco-branco").addClass("search-active"),
+            $("search-input").css("display", "block"),
+            $("icon-search").css("display", "none"),
+            $("div.close-container > icon-close").css("display", "flex"))
+          : ($(".bloco-branco").addClass("search-active"),
+            $("search-input").css("display", "block"),
+            $("icon-search").css("display", "none"),
+            $("div.close-container > icon-close").css("display", "flex"));
+      }),
+      $("icon-close").click(function () {
+        $(".bloco-branco").hasClass("search-active")
+          ? ($(".bloco-branco").removeClass("search-active"),
+            $("search-input").css("display", ""),
+            $(".arrow-container").css("display", "flex"),
+            $("icon-search").css("display", ""),
+            $("div.close-container > icon-close").css("display", ""))
+          : $("search-input").css("display", "block");
+      }),
+      $("icon-lock").click(function () {
+        $("header-internet-banking").hasClass("mobile-app-list-opened")
+          ? $("header-internet-banking").removeClass("mobile-app-list-opened")
+          : $("header-internet-banking").addClass("mobile-app-list-opened");
+      }),
+      $(document).ready(function () {
+        $(document).on("click", ".dropbtn2", function () {
+          $(".dropbtn2").not(this).next().removeClass("show"),
+            $(this).next().addClass("show"),
+            $(this).addClass("clicked"),
+            $(this).removeClass("show"),
+            $(".dropbtn2").not(this).removeClass("clicked");
+        }),
+          $(document).on("click", ".dropbtn2.clicked", function () {
+            $(this).next().removeClass("show"),
+              $(this).removeClass("clicked"),
+              $(".dropbtn2").not(this).next().removeClass("clicked");
+          }),
+          $(document).on("click", function (s) {
+            $(s.target).closest(".dropbtn2").length ||
+              ($(".dropbtn2").next().removeClass("show"),
+              $(".dropbtn2").removeClass("clicked"));
+          }),
+          $(window).scroll(function () {
+            $(".dropdown-menu").removeClass("show"),
+              $(".dropbtn2").removeClass("clicked");
+          });
+      });
+  });
+}
+
+function editCookies() {
+  const event = new Event("editCookies");
+  document.dispatchEvent(event);
+}
+
+carruselInit(), clickhf();
+
+$(document).ready(function () {
+  const boxes = document.querySelectorAll(".box-novidades");
+  boxes.forEach((box) => {
+    box.addEventListener("mouseover", () => {
+      box.classList.add("blog-hover");
+    });
+    box.addEventListener("mouseout", () => {
+      box.classList.remove("blog-hover");
+    });
+  });
+});
+
+
+ 
+const time = 9;
+let iterator = 0;
+$(document).ready(function () {
+  document.getElementById("play-pause").innerHTML = `❚❚`;
+  document.getElementById("controler-play").innerHTML = `pausar`;
+
+  const meters = document.querySelectorAll("svg .meter");
+  let interval = setInterval(() => {
+    timer();
+  }, 1000 / 4);
+  const timer = () => {
+    radialTimerSvg(iterator);
+    iterator += 100 / time / 4;
+    meters.forEach((path) => {
+      path.classList.remove("untransition");
+    });
+    if (iterator > 100) {
+      meters.forEach((path) => {
+        path.classList.add("untransition");
+      });
+      iterator = 0;
+            document.getElementById("superbanner-next").onclick = (e)=>{
+        e.preventDefault()
+        e.stopPropagation()
+        e.stopImmediatePropagation()
+      }
+      document.getElementById("superbanner-next").click();
+      // document.getElementById("superbanner-next").click();
+    }
+  };
+  const radialTimerSvg = () => {
+    meters.forEach((path) => {
+      let to = path.getTotalLength() * ((100 - iterator) / 100);
+      path.getBoundingClientRect();
+      path.style.strokeDashoffset = Math.max(0, to);
+    });
+  };
+  const playPause = () => {
+    if (document.getElementById("play-pause").innerHTML == `❚❚`) {
+      document.getElementById("controler-play").innerHTML = `reproduzir`;
+      dataLayer.push({ 	
+          event: "eventGA", 
+          action: "clicou", 
+          category: "portal:home", 
+          label: "Pause" 
+	      });
+      clearInterval(interval);
+    } else if (document.getElementById("play-pause").innerHTML == `►`) {
+      document.getElementById("controler-play").innerHTML = `pausar`;
+          dataLayer.push({ 	
+          event: "eventGA", 
+          action: "clicou", 
+          category: "portal:home", 
+          label: "Play" 
+	      });
+      interval = setInterval(() => {
+        timer();
+      }, 1000 / 4);
+    }
+  };
+
+
+
+  document.getElementById("controle-pause").addEventListener("click", ({ currentTarget }) => {
+      playPause();
+
+      currentTarget.querySelector('#play-pause').innerHTML == `❚❚`
+        ? currentTarget.querySelector('#play-pause').innerHTML = `►`
+        : currentTarget.querySelector('#play-pause').innerHTML = `❚❚`
+        
+    });
+
+  
+  $(".hero-banner .slick-slider").on(
+    "afterChange",
+    function (event, { slideCount: count }, currentSlide, nextSlide) {
+      iterator = 0;
+
+      const nextPlay = document.getElementById("play-pause");
+      if (nextPlay.innerHTML == `►`) {
+        nextPlay.innerHTML = `❚❚`; 
+        document.getElementById("controler-play").innerHTML = `pausar`;
+        interval = setInterval(() => {
+            timer();
+          }, 1000 / 4);
+      }
+    }
+  );
+});
+
+ 

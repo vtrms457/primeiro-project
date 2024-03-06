@@ -1,0 +1,154 @@
+var winWidthLast, smWindow = 576,
+    mdWindow = 768;
+
+function refreshEnhanced() {
+    window.imageHeroSuperBannerList = document.querySelectorAll(".imagem-hero"), window.importanteCarrocelList = document.querySelectorAll(".importante-carrocel"), window.promoCarrocelList = document.querySelectorAll(".promo-carrocel"), window.prodParceirosCarrocelList = document.querySelectorAll(".prod-parceiros-carrocel"), window.novidadesList = document.querySelectorAll(".box-novidades")
+}
+
+function selectImageBanner(e) {
+    winWidthLast = e;
+    var r = document.querySelectorAll(".imagem-hero");
+    for (i = 0; i < r.length; i++)
+        if ("desktop" === e) {
+            var t = r[i].querySelectorAll("input")[0],
+                l = (a = r[i].querySelector(".texto-hero")).querySelectorAll("input")[0],
+                o = a.querySelector("h1");
+            t.parentElement.style.background = "url(" + t.value + ") right center / cover no-repeat", o.innerHTML = l.value
+        } else if ("tablet" === e) {
+        var u = r[i].querySelectorAll("input")[1];
+        l = (a = r[i].querySelector(".texto-hero")).querySelectorAll("input")[1], o = a.querySelector("h1");
+        u.parentElement.style.background = "url(" + u.value + ") right center / cover no-repeat", o.innerHTML = l.value
+    } else if ("mobile" === e) {
+        var a;
+        u = r[i].querySelectorAll("input")[2], l = (a = r[i].querySelector(".texto-hero")).querySelectorAll("input")[2], o = a.querySelector("h1");
+        u.parentElement.style.background = "url(" + u.value + ") right center / cover no-repeat", o.innerHTML = l.value
+    }
+    var c = document.querySelectorAll(".importante-carrocel");
+    for (i = 0; i < c.length; i++)
+        if ("desktop" === e) {
+            t = (m = c[i].querySelector(".imagem-importante")).querySelectorAll("input")[0];
+            var n = (d = c[i].querySelector(".text-importante")).querySelectorAll("input")[0],
+                y = (l = d.querySelectorAll("input")[3], d.querySelector("h4")),
+                s = d.querySelector("div");
+            m.style.background = "url(" + t.value + ") right center / cover no-repeat", y && (y.innerHTML = n.value), s && (s.innerHTML = l.value)
+        } else if ("tablet" === e) {
+        t = (m = c[i].querySelector(".imagem-importante")).querySelectorAll("input")[1], n = (d = c[i].querySelector(".text-importante")).querySelectorAll("input")[1], l = d.querySelectorAll("input")[4], y = d.querySelector("h4"), s = d.querySelector("div");
+        m.style.background = "url(" + t.value + ") right center / cover no-repeat", y && (y.innerHTML = n.value), s && (s.innerHTML = l.value)
+    } else if ("mobile" === e) {
+        t = (m = c[i].querySelector(".imagem-importante")).querySelectorAll("input")[2], n = (d = c[i].querySelector(".text-importante")).querySelectorAll("input")[2], l = d.querySelectorAll("input")[5], y = d.querySelector("h4"), s = d.querySelector("div");
+        m.style.background = "url(" + t.value + ") right center / cover no-repeat", y && (y.innerHTML = n.value), s && (s.innerHTML = l.value)
+    }
+    var S = document.querySelectorAll(".promo-carrocel");
+    for (i = 0; i < S.length; i++)
+        if ("desktop" === e) {
+            t = (m = S[i].querySelector(".imagem-importante-sim")).querySelectorAll("input")[0], n = (d = S[i].querySelector(".text-importante")).querySelectorAll("input")[0], l = d.querySelectorAll("input")[3], y = d.querySelector("h4"), s = d.querySelector("div");
+            m.style.background = "url(" + t.value + ") right center / cover no-repeat", y && (y.innerHTML = n.value), s && (s.innerHTML = l.value)
+        } else if ("tablet" === e) {
+        t = (m = S[i].querySelector(".imagem-importante-sim")).querySelectorAll("input")[1], n = (d = S[i].querySelector(".text-importante")).querySelectorAll("input")[1], l = d.querySelectorAll("input")[4], y = d.querySelector("h4"), s = d.querySelector("div");
+        m.style.background = "url(" + t.value + ") right center / cover no-repeat", y && (y.innerHTML = n.value), s && (s.innerHTML = l.value)
+    } else if ("mobile" === e) {
+        var d;
+        t = (m = S[i].querySelector(".imagem-importante-sim")).querySelectorAll("input")[2], n = (d = S[i].querySelector(".text-importante")).querySelectorAll("input")[2], l = d.querySelectorAll("input")[5], y = d.querySelector("h4"), s = d.querySelector("div");
+        m.style.background = "url(" + t.value + ") right center / cover no-repeat", y && (y.innerHTML = n.value), s && (s.innerHTML = l.value)
+    }
+    var q = document.querySelectorAll(".box-veja-tambem");
+    for (i = 0; i < q.length; i++)
+        if ("desktop" === e) {
+            t = (m = q[i].querySelector(".imagem-importante-veja")).querySelectorAll("input")[0];
+            m.style.background = "url(" + t.value + ") right center / cover no-repeat"
+        } else if ("tablet" === e) {
+        t = (m = q[i].querySelector(".imagem-importante-veja")).querySelectorAll("input")[1];
+        m.style.background = "url(" + t.value + ") right center / cover no-repeat"
+    } else if ("mobile" === e) {
+        var m;
+        t = (m = q[i].querySelector(".imagem-importante-veja")).querySelectorAll("input")[2];
+        m.style.background = "url(" + t.value + ") right center / cover no-repeat"
+    }
+    var p = document.querySelectorAll(".grupo-de-cards")[0].querySelectorAll(".card-divider");
+    for (i = 0; i < p.length; i++)
+        if ("desktop" === e) {
+            var v = p[i].querySelector("img");
+            t = p[i].querySelectorAll("input")[0].value;
+            v.setAttribute("data-src", t)
+        } else if ("tablet" === e) {
+        v = p[i].querySelector("img"), t = p[i].querySelectorAll("input")[1].value;
+        v.setAttribute("data-src", t)
+    } else if ("mobile" === e) {
+        v = p[i].querySelector("img"), t = p[i].querySelectorAll("input")[2].value;
+        v.setAttribute("data-src", t)
+    }
+    var A = document.querySelectorAll(".bloco-autoatendimento")[0].querySelectorAll(".card-divider");
+    for (i = 0; i < A.length; i++)
+        if ("desktop" === e) {
+            var g = A[i].querySelector("img"),
+                b = A[i].querySelectorAll("input")[0].value;
+            g.setAttribute("data-src", b)
+        } else if ("tablet" === e) {
+        g = A[i].querySelector("img"), b = A[i].querySelectorAll("input")[1].value;
+        g.setAttribute("data-src", b)
+    } else if ("mobile" === e) {
+        g = A[i].querySelector("img"), b = A[i].querySelectorAll("input")[2].value;
+        g.setAttribute("data-src", b)
+    }
+    var h = document.querySelectorAll(".bloco-produtos-parceiros")[0].querySelectorAll(".card-divider");
+    for (i = 0; i < h.length; i++)
+        if ("desktop" === e) {
+            var f = h[i].querySelector("img"),
+                L = h[i].querySelectorAll("input")[0].value;
+            f.setAttribute("data-src", L)
+        } else if ("tablet" === e) {
+        f = h[i].querySelector("img"), L = h[i].querySelectorAll("input")[1].value;
+        f.setAttribute("data-src", L)
+    } else if ("mobile" === e) {
+        f = h[i].querySelector("img"), L = h[i].querySelectorAll("input")[2].value;
+        f.setAttribute("data-src", L)
+    }
+    var k = document.querySelectorAll(".bloco-novidades")[0].querySelectorAll(".box-novidades");
+    for (i = 0; i < k.length; i++)
+        if ("desktop" === e) {
+            var w = k[i].querySelector("img"),
+                H = k[i].querySelectorAll("input")[0].value;
+            w.setAttribute("data-src", H)
+        } else if ("tablet" === e) {
+        w = k[i].querySelector("img"), H = k[i].querySelectorAll("input")[1].value;
+        w.setAttribute("data-src", H)
+    } else if ("mobile" === e) {
+        w = k[i].querySelector("img"), H = k[i].querySelectorAll("input")[2].value;
+        w.setAttribute("data-src", H)
+    }
+    var M = document.querySelectorAll(".bloco-canais-digitais")[0].querySelectorAll(".icon-fragment");
+    for (i = 0; i < M.length; i++){
+        if ("desktop" === e) {
+            var T = M[i].querySelector("img"),
+                W = M[i].querySelectorAll("input")[0].value;
+            T.setAttribute("data-src", W)
+        } else if ("tablet" === e) {
+        T = M[i].querySelector("img"), W = M[i].querySelectorAll("input")[1].value;
+        T.setAttribute("data-src", W)
+        } else if ("mobile" === e) {
+            T = M[i].querySelector("img"), W = M[i].querySelectorAll("input")[2].value;
+            T.setAttribute("data-src", W)
+        }        
+    }
+
+    var x = document.querySelectorAll(".bloco-outras-marcas")[0].querySelectorAll(".col.ajustment-display");
+    for (i = 0; i < x.length; i++)
+        if ("desktop" === e) {
+            var j = x[i].querySelector("img"),
+                B = x[i].querySelectorAll("input")[0].value;
+            j.setAttribute("data-src", B)
+        } else if ("tablet" === e) {
+        j = x[i].querySelector("img"), B = x[i].querySelectorAll("input")[1].value;
+        j.setAttribute("data-src", B)
+    } else if ("mobile" === e) {
+        j = x[i].querySelector("img"), B = x[i].querySelectorAll("input")[2].value;
+        j.setAttribute("data-src", B)
+    }
+    refreshEnhanced()
+}
+
+function displayWidthDetect() {
+    var e, r = window.innerWidth;
+    r <= smWindow ? (e = "mobile") != winWidthLast && selectImageBanner(e) : r > smWindow && r <= mdWindow ? (e = "tablet") != winWidthLast && selectImageBanner(e) : r > mdWindow && (e = "desktop") != winWidthLast && selectImageBanner(e)
+}
+displayWidthDetect();

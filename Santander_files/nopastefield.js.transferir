@@ -1,0 +1,10 @@
+var txtAgencia = document.getElementsByName('txtAgencia')[0];
+var txtConta = document.getElementsByName('txtConta')[0];
+txtAgencia.setAttribute('onpaste', 'notPaste(event);');
+txtConta.setAttribute('onpaste', 'notPaste(event);');
+
+function notPaste(e) {
+	if(e.type === "paste"){
+		return e.preventDefault();
+	}
+}

@@ -1,0 +1,118 @@
+var searchInputContainer = document.querySelector("search-input");
+var searchInput = searchInputContainer.querySelector("#search-text");
+var searchAutoComplete = document.querySelector("search-autocomplete");
+var searchAutoCompleteResults = document.querySelector("search-autocomplete-results");
+var linkListItem = searchAutoCompleteResults.querySelector('link-list-item');
+var iconClose = searchInputContainer.querySelector("icon-close");
+var cloneLinkListItem = linkListItem.cloneNode(true);
+var parentLinkListItem = linkListItem.parentElement;
+var debounce;
+
+
+function initSearchConfig() {
+    parentLinkListItem.removeChild(linkListItem);
+}
+
+initSearchConfig();
+
+function searchActive(event) {
+    var blocoBranco = document.querySelector('.bloco-branco');
+    if (event.type == 'click' && !blocoBranco.classList.contains("search-active") && (winWidthLast == 'tablet' || winWidthLast == 'desktop')) {
+        blocoBranco.classList.add("search-active")
+    } else if (event.type == 'blur' && blocoBranco.classList.contains("search-active") && (winWidthLast == 'tablet' || winWidthLast == 'desktop') && iconClose.style.display != 'flex' ) {
+        blocoBranco.classList.remove("search-active")
+    }
+}
+
+searchInput.addEventListener('click', searchActive);
+searchInput.addEventListener('blur', searchActive);
+
+function searchTerms(event) {
+
+    if (event.keyCode === 13) {
+        var textValue = searchNormalize(searchInput.value);
+        if (textValue) {
+            var url = 'https://www.santander.com.br/resultado-busca?q=' + textValue;
+            window.open(url, "_blank");
+        }
+    }
+
+    if (event.type === "click") {
+        var textValue = searchNormalize(searchInput.value);
+        if (textValue) {
+            var url = 'https://www.santander.com.br/resultado-busca?q=' + textValue;
+            window.open(url, "_blank");
+        }
+    }
+}
+
+function searchPreview(searchResult, searchInputNormilized) {
+    var itemList = searchAutoCompleteResults.querySelectorAll('link-list-item');
+    for (i = 0; i < itemList.length; i++) {
+        itemList[i].remove();
+    }
+    var resultsArr = [];
+    if (searchResult['searchMenu'] && searchResult['searchMenu']['results'] && searchResult['searchMenu']['results']['links']) {
+        searchResult = Array.isArray(searchResult['searchMenu']['results']['links']) ? searchResult['searchMenu']['results']['links'] : [searchResult['searchMenu']['results']['links']];
+        searchAutoComplete.classList.add('-visible');
+        searchResult.map(function (item, index) {
+            var newClone = cloneLinkListItem.cloneNode(true)
+            //popular
+            newClone.querySelector('a').href = item.link;
+            newClone.querySelector('p').innerText = item.title;
+            //append
+            parentLinkListItem.appendChild(newClone);
+            resultsArr.push(item.title);
+        })
+    }
+    window.dataLayer.push(
+        {
+            "event": "ga_search",
+            "search": searchInputNormilized.split(' '),
+            "results": resultsArr,
+            "links": [],
+            "origin": "autocomplete"
+        }
+    );
+}
+
+function searchNormalize(string) {
+    return string.normalize("NFD").replace(/[^a-zA-Z][ ]*$/g, "");
+}
+
+function changeClassSearch() {
+    if (searchInput.value != '' && !searchInputContainer.classList.contains('active')) {
+        searchInputContainer.classList.add('active');
+    } else if (searchInput.value != '' && searchInputContainer.classList.contains('active')) {
+        clearTimeout(debounce);
+        debounce = setTimeout(function () {
+            var searchInputNormilized = searchNormalize(searchInput.value);
+            if (searchInputNormilized) {
+                var searchUrl = 'https://xff.santandernet.com.br/commercial-portal/v2/WPS/autocomplete/' + searchInputNormilized + '?codeUF=br_sp&segment=generico&context=portal&gw-app-key=17379590e58f01341baa005056906329';
+                var searchApiGet = fetch(searchUrl, { method: 'GET' })
+                    .then(function (response) { return response.json(); })
+                    .then(function (searchResult) { searchPreview(searchResult, searchInputNormilized) })
+                    .catch(function (error) { console.log(error) });
+            }
+        }, 500);
+
+    } else {
+        var itemList = searchAutoCompleteResults.querySelectorAll('link-list-item');
+        for (i = 0; i < itemList.length; i++) {
+            itemList[i].remove();
+        }
+        searchAutoComplete.classList.remove('-visible');
+        searchInputContainer.classList.remove('active');
+    }
+}
+
+function closeSearchTerms() {
+    searchInput.value = '';
+    var itemList = searchAutoCompleteResults.querySelectorAll('link-list-item');
+    for (i = 0; i < itemList.length; i++) {
+        itemList[i].remove();
+    }
+    searchAutoComplete.classList.remove('-visible');
+    searchInputContainer.classList.remove('active');
+}
+
